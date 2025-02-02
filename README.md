@@ -6,7 +6,7 @@ Snake run project
 -[usage](#usage)
 -[license](#aprroval)
 -[contribution](#work)
-## installation
+## installation 
 ncjkcJCXBSAHKCXBASCNsj
 sLJNSjlnsjkcbsucsicmSKN
 SMXBHKSNSLnc
