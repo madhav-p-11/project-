@@ -12,5 +12,5 @@ SMXBHKSNSLnc
 ## usage
 wjnnaduccahkcbahb
 cakhcbvacbajc
-## license
+## approval
 wccabcac
