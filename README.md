@@ -5,6 +5,7 @@ Snake run project
 -[installation](#installation)
 -[usage](#usage)
 -[license](#aprroval)
+-[contribution](#work)
 ## installation
 ncjkcJCXBSAHKCXBASCNsj
 sLJNSjlnsjkcbsucsicmSKN
@@ -14,3 +15,8 @@ wjnnaduccahkcbahb
 cakhcbvacbajc
 ## approval
 wccabcac
+## work
+tirth ditani-202401417
+madhav parmar-202401260
+neeti gunsai-202401423
+diya bhuva - 202401410
