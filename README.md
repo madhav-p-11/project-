@@ -13,7 +13,7 @@ SMXBHKSNSLnc
 ## usage
 wjnnaduccahkcbahb
 cakhcbvacbajc
-[`snake.cpp`](./a.exe).  
+[`snake.cpp`](./snake.cpp).  
 ## approval
 wccabcac
 ## work
