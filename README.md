@@ -18,8 +18,8 @@ Click on the link provided to view the
 [`snake.cpp`](./snake.cpp). file, which contains the code for our Snack Game. To run the game, copy and paste the code into any online complier or VS code, then compile and execute it.
 To run the code and play the game, copy the given code and paste it in any online complier or in VScode and run.
 To run the complied file:
-Windows : snack-game.exe (if the file name is saved as snack-game)
-Linux/macOS : ./snack-game
+Windows : snack-game.exe (if the file name is saved as snack-game)<br>
+Linux/macOS : ./snack-game<br>
 
 
 ## GAME MANUAL: 
