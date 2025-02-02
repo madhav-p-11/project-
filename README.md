@@ -1,7 +1,7 @@
 Presenting the 1st insem project by our group - crazy codders!!
  # PROJECT NAME : The Snake Game
 
-![image alt](https://github.com/madhav-p-11/project-/blob/main/Screenshot%202025-01-25%20194536.png)
+![image alt]()
 ## TABLE AND CONTENTS:
 -[installation](#installation)
 -[usage](#usage)
