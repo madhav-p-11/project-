@@ -67,7 +67,9 @@ D- By pressing ‘D’ you can move your snake in right direction .
 
 
 Score criteria:
-When the snake eats the food once the score increases by 10.  The Current  score of the gamer  will be displayed on the gaming screen . Once the game is over the final score will be displayed at last
+When the snake eats the food once the score increases by 10. Also the length of snake will also be increased by one unit.  The Current  score of the gamer  will be displayed on the gaming screen . Once the game is over the final score will be displayed at last
+
+![image alt](https://github.com/madhav-p-11/project-/blob/main/Screenshot%202025-02-03%20170939.png)
 
 Exit  criteria :
 To exit the game in between enter the Enter key.
