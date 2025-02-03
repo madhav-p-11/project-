@@ -1,7 +1,7 @@
 Presenting the 1st insem project by our group - crazy codders!!
  # PROJECT NAME : The Snake Game
 
-![image alt]()
+
 ## TABLE AND CONTENTS:
 -[installation](#installation)
 -[usage](#usage)
@@ -28,19 +28,40 @@ The Snake run game is run on terminal .
 
 Now the the slide will show you W/A/S/D, now start the game by passing  ’S’command from the keyboard. Now  The game will start running in your terminal with the score showing “SCORE=0”. You can control the movement of snake with W/A/S/D key bars.
 
+![image alt]()                                                         
+
+
 ## Add the starting interface at here##
 Control inputs:
 W - By pressing ‘W’ you can move your snake  in upwards direction.
 ## Add the two small images of starting interface and Image of interface having snake in upward direction##
 
+![image alt]()
+![image alt]()
+
+
 A - By pressing ‘A’ you can move your snake in left direction .
 ## Add the two small images of starting interface and Image of interface having snake in left direction##
+
+
+![image alt]()
+![image alt]()
+
 
 S- By pressing ’S’ you can move your snake in downwards direction .
 ## Add the two small images of starting interface and image of interface having snake in downward direction##
 
+![image alt]()
+![image alt]()
+
+
+
 D- By pressing ‘D’ you can move your snake in right direction .
 ##Add the two small images of starting interface and image of interface having snake in downward direction##
+
+![image alt]()
+![image alt]()
+
 
 Score criteria:
 When the snake eats the food once the score increases by 10.  The Current  score of the gamer  will be displayed on the gaming screen . Once the game is over the final score will be displayed at last
