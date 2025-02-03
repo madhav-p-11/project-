@@ -28,7 +28,7 @@ The Snake run game is run on terminal .
 
 Now the the slide will show you W/A/S/D, now start the game by passing  ’S’command from the keyboard. Now  The game will start running in your terminal with the score showing “SCORE=0”. You can control the movement of snake with W/A/S/D key bars.
 
-![image alt]()                                                         
+![image alt](https://github.com/madhav-p-11/project-/blob/main/Screenshot%202025-02-03%20170606.png)                                                         
 
 
 ## Add the starting interface at here##
@@ -37,21 +37,20 @@ W - By pressing ‘W’ you can move your snake  in upwards direction.
 ## Add the two small images of starting interface and Image of interface having snake in upward direction##
 
 ![image alt]()
-![image alt]()
-
+![image alt](https://github.com/madhav-p-11/project-/blob/main/Screenshot%202025-02-03%20170606.png)
 
 A - By pressing ‘A’ you can move your snake in left direction .
 ## Add the two small images of starting interface and Image of interface having snake in left direction##
 
 
-![image alt]()
+![image alt](https://github.com/madhav-p-11/project-/blob/main/Screenshot%202025-02-03%20170606.png)
 ![image alt]()
 
 
 S- By pressing ’S’ you can move your snake in downwards direction .
 ## Add the two small images of starting interface and image of interface having snake in downward direction##
 
-![image alt]()
+![image alt](https://github.com/madhav-p-11/project-/blob/main/Screenshot%202025-02-03%20170606.png)
 ![image alt]()
 
 
@@ -59,7 +58,7 @@ S- By pressing ’S’ you can move your snake in downwards direction .
 D- By pressing ‘D’ you can move your snake in right direction .
 ##Add the two small images of starting interface and image of interface having snake in downward direction##
 
-![image alt]()
+![image alt](https://github.com/madhav-p-11/project-/blob/main/Screenshot%202025-02-03%20170606.png)
 ![image alt]()
 
 
