@@ -47,7 +47,7 @@ A - By pressing ‘A’ you can move your snake in left direction .
 
 
 
-![image alt](https://github.com/madhav-p-11/project-/commit/7117abc6fafb0240a36a8b352d957e3578a864d5)
+![image alt](https://github.com/madhav-p-11/project-/blob/main/Screenshot%202025-02-03%20170711.png)
 
 
 S- By pressing ’S’ you can move your snake in downwards direction .
@@ -55,7 +55,7 @@ S- By pressing ’S’ you can move your snake in downwards direction .
 
 
 
-![image alt](https://github.com/madhav-p-11/project-/commit/7117abc6fafb0240a36a8b352d957e3578a864d5)
+![image alt](https://github.com/madhav-p-11/project-/blob/main/Screenshot%202025-02-03%20170641.png)
 
 
 
@@ -65,7 +65,7 @@ D- By pressing ‘D’ you can move your snake in right direction .
 
 
 
-![image alt](https://github.com/madhav-p-11/project-/commit/7117abc6fafb0240a36a8b352d957e3578a864d5)
+![image alt](https://github.com/madhav-p-11/project-/blob/main/Screenshot%202025-02-03%20170711.png)
 
 
 Score criteria:
