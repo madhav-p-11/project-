@@ -36,7 +36,6 @@ Control inputs:
 W - By pressing ‘W’ you can move your snake  in upwards direction.
 ## Add the two small images of starting interface and Image of interface having snake in upward direction##
 
-![image alt](https://github.com/madhav-p-11/project-/commit/7117abc6fafb0240a36a8b352d957e3578a864d5)
 
 
 ![image alt](https://github.com/madhav-p-11/project-/blob/main/Screenshot%202025-02-03%20170606.png)
@@ -45,7 +44,7 @@ A - By pressing ‘A’ you can move your snake in left direction .
 ## Add the two small images of starting interface and Image of interface having snake in left direction##
 
 
-![image alt](https://github.com/madhav-p-11/project-/blob/main/Screenshot%202025-02-03%20170606.png)
+
 
 
 ![image alt](https://github.com/madhav-p-11/project-/commit/7117abc6fafb0240a36a8b352d957e3578a864d5)
@@ -53,8 +52,6 @@ A - By pressing ‘A’ you can move your snake in left direction .
 
 S- By pressing ’S’ you can move your snake in downwards direction .
 ## Add the two small images of starting interface and image of interface having snake in downward direction##
-
-![image alt](https://github.com/madhav-p-11/project-/blob/main/Screenshot%202025-02-03%20170606.png)
 
 
 
@@ -65,7 +62,6 @@ S- By pressing ’S’ you can move your snake in downwards direction .
 D- By pressing ‘D’ you can move your snake in right direction .
 ##Add the two small images of starting interface and image of interface having snake in downward direction##
 
-![image alt](https://github.com/madhav-p-11/project-/blob/main/Screenshot%202025-02-03%20170606.png)
 
 
 
