@@ -10,7 +10,7 @@ Presenting the 1st insem project by our group - crazy codders!!
 -[installation](#installation)
 
 
--[GameManual](#GameManual)
+-[Game Manual](#usage)
 
 
 -[Contribution](#Contribution)
