@@ -10,7 +10,7 @@ Presenting the 1st insem project by our group - crazy codders!!
 -[installation](#installation)
 
 
--[Game Manual](#GameManual)
+-[Game Manual](#Game-Manual)
 
 
 -[Contribution](#Contribution)
@@ -38,7 +38,7 @@ Windows : snack-game.exe (if the file name is saved as snack-game)<br>
 Linux/macOS : ./snack-game<br>
 
 
-## GAMEMANUAL: 
+## GAME-MANUAL: 
 
 The Snake run game is run on terminal . 
 
