@@ -13,9 +13,6 @@ Presenting the 1st insem project by our group - crazy codders!!
 -[Game Manual](#Game-Manual)
 
 
--[Contribution](#Contribution)
-
-
 -[Team](#Team)
 
 
@@ -93,7 +90,7 @@ When the snake eats the food once the score increases by 10. Also the length of 
 
 To exit the game in between enter the Enter key.
 
-## CONTRIBUTION:
+
 
 
 ## TEAM:
