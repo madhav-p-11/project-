@@ -10,208 +10,197 @@ const int WIDTH = 30;
 const int HEIGHT = 30;
 
 enum Direction { STOP = 0, UP, DOWN, LEFT, RIGHT };
-Direction dir;
 
-int x, y;
-int foodX, foodY;
-int score;
-vector<pair<int, int>> snake;
-bool gameOver;
-int speed;
-bool gameStarted = false;  // New flag to check if the game has started
+class GameObject {
+public:
+    virtual void setPosition() = 0;
+};
 
-void setColor(int color) {
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(hConsole, color);
-}
+class Food : public GameObject {
+public:
+    int x, y;
+    void setPosition() override {
+        x = rand() % WIDTH;
+        y = rand() % HEIGHT;
+    }
+};
 
-void gotoXY(int x, int y) {
-    COORD coord;
-    coord.X = x;
-    coord.Y = y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-}
+class Snake {
+public:
+    vector<pair<int, int>> body;
+    void startPosition(int startX, int startY) {
+        body.clear();
+        body.push_back({startX, startY});
+        body.push_back({startX, startY + 1});
+        body.push_back({startX, startY + 2});
+    }
+};
 
-void hideCursor() {
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    CONSOLE_CURSOR_INFO cursorInfo;
-    GetConsoleCursorInfo(hConsole, &cursorInfo);
-    cursorInfo.bVisible = false; // Set the cursor to invisible
-    SetConsoleCursorInfo(hConsole, &cursorInfo);
-}
+class Game {
+private:
+    Direction dir;
+    int x, y;
+    int score;
+    bool gameOver;
+    int speed;
+    bool gameStarted;
+    Snake snake;
+    Food food;
 
-void setup() {
-    SetConsoleOutputCP(CP_UTF8);
-    gameOver = false;
-    dir = STOP;
+public:
+    Game() {
+        initialize();
+    }
 
-    x = WIDTH / 2;
-    y = HEIGHT / 2;
+    void setTextColor(int color) {
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(hConsole, color);
+    }
 
-    snake.clear();
-    snake.push_back({x, y});
-    snake.push_back({x, y + 1});
-    snake.push_back({x, y + 2});
+    void moveCursor(int x, int y) {
+        COORD coord;
+        coord.X = x;
+        coord.Y = y;
+        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+    }
 
-    foodX = rand() % WIDTH;
-    foodY = rand() % HEIGHT;
+    void hideCursor() {
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        CONSOLE_CURSOR_INFO cursorInfo;
+        GetConsoleCursorInfo(hConsole, &cursorInfo);
+        cursorInfo.bVisible = false;
+        SetConsoleCursorInfo(hConsole, &cursorInfo);
+    }
 
-    score = 0;
-    speed = 100; // Initial speed
+    void initialize() {
+        SetConsoleOutputCP(CP_UTF8);
+        gameOver = false;
+        dir = STOP;
+        x = WIDTH / 2;
+        y = HEIGHT / 2;
+        snake.startPosition(x, y);
+        food.setPosition();
+        score = 0;
+        speed = 100;
+        gameStarted = false;
+        hideCursor();
+        cout << "Press 'S' to start the game and 'Enter' to exit at any time." << endl;
+    }
 
-    hideCursor(); // Hide cursor at the start of the game
-
-    setColor(16);
-    cout << "Press S to start the game!" << endl; // Show message to press 'S'
-    cout << "Press Enter to exit the game at any time." << endl;
-}
-
-void draw() {
-    gotoXY(0, 0); // Move to top-left of the screen to start drawing the grid
-    setColor(7);
-
-    // Draw top border
-    for (int i = 0; i < WIDTH + 2; i++)
-        cout << "█";
-    cout << endl;
-
-    // Draw game field
-    for (int i = 0; i < HEIGHT; i++) {
-        for (int j = 0; j < WIDTH; j++) {
-            if (j == 0) {
-                setColor(7);
-                cout << "█"; // Left wall
-            }
-
-            setColor(0);
-
-            // Draw snake
-            bool printed = false;
-            for (const auto &segment : snake) {
-                if (segment.first == j && segment.second == i) {
-                    setColor(2);
-                    cout << "⬤";
-                    printed = true;
-                    break;
+    void render() {
+        moveCursor(0, 0);
+        setTextColor(7);
+        for (int i = 0; i < WIDTH + 2; i++)
+            cout << "█";
+        cout << endl;
+        for (int i = 0; i < HEIGHT; i++) {
+            for (int j = 0; j < WIDTH; j++) {
+                if (j == 0) {
+                    setTextColor(7);
+                    cout << "█";
+                }
+                setTextColor(0);
+                bool printed = false;
+                for (const auto &segment : snake.body) {
+                    if (segment.first == j && segment.second == i) {
+                        setTextColor(2);
+                        cout << "O";  // Replaced Unicode '⬤' with 'O'
+                        printed = true;
+                        break;
+                    }
+                }
+                if (!printed && i == y && j == x) {
+                    setTextColor(3);
+                    char headChar = '^';  // Default direction UP
+                    if (dir == DOWN) headChar = 'v';
+                    else if (dir == LEFT) headChar = '<';
+                    else if (dir == RIGHT) headChar = '>';
+                    cout << headChar;
+                } else if (!printed && i == food.y && j == food.x) {
+                    setTextColor(4 | FOREGROUND_INTENSITY);
+                    cout << "F";  // Replaced Unicode '■' with 'F'
+                } else if (!printed) {
+                    cout << " ";
+                }
+                if (j == WIDTH - 1) {
+                    setTextColor(7);
+                    cout << "█";
                 }
             }
-
-            // Draw player (head of the snake)
-            if (!printed && i == y && j == x) {
-                setColor(3);
-                if (dir == UP) cout << "▲";
-                else if (dir == DOWN) cout << "▼";
-                else if (dir == LEFT) cout << "◄";
-                else if (dir == RIGHT) cout << "►";
-                else cout << "▲";
-            }
-
-            // Draw food
-            else if (!printed && i == foodY && j == foodX) {
-                setColor(4 | FOREGROUND_INTENSITY);
-                cout << "■";
-            }
-
-            // Draw empty space
-            else if (!printed) {
-                cout << " ";
-            }
-
-            if (j == WIDTH - 1) {
-                setColor(7);
-                cout << "█"; // Right wall
-            }
+            cout << endl;
         }
+        for (int i = 0; i < WIDTH + 2; i++)
+            cout << "█";
         cout << endl;
+        setTextColor(15);
+        cout << "Score: " << score << endl;
     }
 
-    // Draw bottom border
-    for (int i = 0; i < WIDTH + 2; i++)
-        cout << "█";
-    cout << endl;
-
-    // Draw score (without speed)
-    setColor(15);
-    cout << "Score: " << score << endl;
-}
-
-void input() {
-    if (_kbhit()) {
-        char ch = _getch();
-        if (!gameStarted) {
-            // Start the game if the player presses 'S'
-            if (ch == 's' || ch == 'S') {
-                gameStarted = true; // Game starts
-                dir = UP; // Initialize direction
-            }
-            else if (ch == 13) {  // Enter key
-                gameOver = true;  // Exit the game at the start if Enter is pressed
-            }
-        } else {
-            switch (ch) {
-                case 'w': if (dir != DOWN) dir = UP; break;
-                case 's': if (dir != UP) dir = DOWN; break;
-                case 'a': if (dir != RIGHT) dir = LEFT; break;
-                case 'd': if (dir != LEFT) dir = RIGHT; break;
-                case 'x': gameOver = true; break;
-                case 13: gameOver = true; break; // Exit the game during gameplay if Enter is pressed
+    void getInput() {
+        if (_kbhit()) {
+            char ch = _getch();
+            if (!gameStarted) {
+                if (ch == 's' || ch == 'S') {
+                    gameStarted = true;
+                    dir = UP;
+                } else if (ch == 13) {
+                    gameOver = true;
+                }
+            } else {
+                switch (ch) {
+                    case 'w': if (dir != DOWN) dir = UP; break;
+                    case 's': if (dir != UP) dir = DOWN; break;
+                    case 'a': if (dir != RIGHT) dir = LEFT; break;
+                    case 'd': if (dir != LEFT) dir = RIGHT; break;
+                    case 'x': gameOver = true; break;
+                    case 13: gameOver = true; break;
+                }
             }
         }
     }
-}
 
-void logic() {
-    for (int i = snake.size() - 1; i > 0; i--) {
-        snake[i] = snake[i - 1];
-    }
-
-    snake[0] = {x, y};
-
-    switch (dir) {
-        case UP: y--; break;
-        case DOWN: y++; break;
-        case LEFT: x--; break;
-        case RIGHT: x++; break;
-        
-        default: break;
-    }
-
-    if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
-        gameOver = true;
-
-    for (int i = 1; i < snake.size(); i++) {
-        if (snake[i].first == x && snake[i].second == y)
-            gameOver = true;
-    }
-
-    if (x == foodX && y == foodY) {
-        score += 10;
-        snake.push_back({-1, -1});
-        foodX = rand() % WIDTH;
-        foodY = rand() % HEIGHT;
-
-        if (score % 10 == 0) {
-            speed = max(10, speed * 80 / 100); // Increase speed by 20%, ensuring it doesn't go below 10ms
+    void updateLogic() {
+        for (int i = snake.body.size() - 1; i > 0; i--) {
+            snake.body[i] = snake.body[i - 1];
+        }
+        snake.body[0] = {x, y};
+        switch (dir) {
+            case UP: y--; break;
+            case DOWN: y++; break;
+            case LEFT: x--; break;
+            case RIGHT: x++; break;
+            default: break;
+        }
+        if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT) gameOver = true;
+        for (int i = 1; i < snake.body.size(); i++) {
+            if (snake.body[i].first == x && snake.body[i].second == y)
+                gameOver = true;
+        }
+        if (x == food.x && y == food.y) {
+            score += 10;
+            snake.body.push_back({-1, -1});
+            food.setPosition();
+            if (score % 10 == 0) speed = max(10, speed * 80 / 100);
         }
     }
-}
+
+    void startGame() {
+        while (!gameStarted) {
+            getInput();
+        }
+        while (!gameOver) {
+            render();
+            getInput();
+            updateLogic();
+            Sleep(speed);
+        }
+        setTextColor(12);
+        cout << "OOPS!, GAME OVER AND YOUR FINAL SCORE IS: " << score << endl;
+    }
+};
 
 int main() {
-    setup();
-
-    while (!gameStarted) {
-        input(); // Wait until the user presses 'S' to start or Enter to exit
-    }
-
-    // Once game starts, move to the main game loop
-    while (!gameOver) {
-        draw();
-        input();
-        logic();
-        Sleep(speed);
-    }
-
-    setColor(12);
-    cout << "OOPS!, GAME OVER AND YOUR FINAL SCORE IS :" << score << endl;
-    return 0;
+    Game game;
+    game.startGame();
+ return 0;
 }
