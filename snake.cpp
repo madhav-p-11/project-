@@ -104,21 +104,21 @@ public:
                 for (const auto &segment : snake.body) {
                     if (segment.first == j && segment.second == i) {
                         setTextColor(2);
-                        cout << "O";  // Replaced Unicode '⬤' with 'O'
+                        cout << "O";  
                         printed = true;
                         break;
                     }
                 }
                 if (!printed && i == y && j == x) {
                     setTextColor(3);
-                    char headChar = '^';  // Default direction UP
+                    char headChar = '^';  
                     if (dir == DOWN) headChar = 'v';
                     else if (dir == LEFT) headChar = '<';
                     else if (dir == RIGHT) headChar = '>';
                     cout << headChar;
                 } else if (!printed && i == food.y && j == food.x) {
                     setTextColor(4 | FOREGROUND_INTENSITY);
-                    cout << "F";  // Replaced Unicode '■' with 'F'
+                    cout << "F"; 
                 } else if (!printed) {
                     cout << " ";
                 }
