@@ -89,15 +89,15 @@ public:
 
     void render() {
         moveCursor(0, 0);
-        setTextColor(7);
-        for (int i = 0; i < WIDTH + 2; i++)
-            cout << "█";
+        setTextColor(1);
+        for (int i = 0; i < (WIDTH + 2)/2+1; i++)
+            cout << "🧱";
         cout << endl;
         for (int i = 0; i < HEIGHT; i++) {
             for (int j = 0; j < WIDTH; j++) {
                 if (j == 0) {
                     setTextColor(7);
-                    cout << "█";
+                    cout << "🧱";
                 }
                 setTextColor(0);
                 bool printed = false;
@@ -124,13 +124,13 @@ public:
                 }
                 if (j == WIDTH - 1) {
                     setTextColor(7);
-                    cout << "█";
+                    cout << "🧱";
                 }
             }
             cout << endl;
         }
-        for (int i = 0; i < WIDTH + 2; i++)
-            cout << "█";
+        for (int i = 0; i < (WIDTH + 2)/2+1; i++)
+            cout << "🧱";
         cout << endl;
         setTextColor(15);
         cout << "Score: " << score << endl;
@@ -202,5 +202,5 @@ public:
 int main() {
     Game game;
     game.startGame();
- return 0;
+    return 0;
 }
